@@ -20,3 +20,7 @@ The analyses are of a dataset called `bremen` supplied in `rainy`. Use `?bremen`
 ## Figures and tables
 
 The figures and tables are those in the draft of the paper that was accepted for publication, not the (vastly improved) versions that appear in the published review article. The figure captions are not included. Neither Figure 2 nor Figure 8 are reproduced.
+
+## Github repository
+
+See [smor](https://github.com/paulnorthrop/smor) for the code that produced this site.
