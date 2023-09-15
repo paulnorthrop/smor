@@ -9,7 +9,7 @@ This website provides R code to reproduce analyses and (most of) the figures in
 
 ## Required R packages
 
-The [`rainy`](https://github.com/paulnorthrop/rainy) package is required and can be installed from Github.
+The [`rainy`](https://github.com/paulnorthrop/rainy) package is required. It will be made public soon.
 
 The [`patchwork`](https://cran.r-project.org/package=patchwork) package is required for Figures 1, 4 and 7. The [`kableExtra`](https://cran.r-project.org/package=kableExtra) packages is required for Table 1.
 
