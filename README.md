@@ -1,5 +1,5 @@
-# arsia-smor
+# Stochastic Models of Rainfall
 
-Stochastic Models of Rainfall: a review to appear in [Annual Review of Statistics and its Application](https://www.annualreviews.org/journal/statistics)
+A review to appear in [Annual Review of Statistics and its Application](https://www.annualreviews.org/journal/statistics)
 
 Webpage link [https://paulnorthrop.github.io/smor/](https://paulnorthrop.github.io/smor/)
