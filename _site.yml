@@ -1,0 +1,22 @@
+name: "smor"
+output_dir: docs
+navbar:
+  title: "Stochastic Models of Rainfall"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Figure 1"
+      href: figure1.html
+    - text: "Figure 3"
+      href: figure3.html
+    - text: "Figure 4"
+      href: figure4.html
+    - text: "Section 7"
+      href: section7.html
+
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: united
+    highlight: default

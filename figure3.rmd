@@ -1,0 +1,32 @@
+---
+title: ""
+---
+
+## Load R packages
+
+```{r}
+library(rainy)
+```
+
+## Temporal model schematic
+
+```{r figure3, echo = TRUE, out.width = "100%"}
+b1 <- c(0.25, 1.1, 2.4)
+d1 <- c(1.25, 1.95, 3.0)
+i1 <- c(1, 2, 0.7)
+storm1 <- cbind(3 * b1, 3 * d1, i1, 1, 7.25)
+b2 <- c(4.55, 4.7, 5.3, 5.7)
+d2 <- c(5.9, 5.1, 5.8, 6.12)
+i2 <- c(2, 3, 1.3, 0.8)
+storm2 <- cbind(3 * b2, 3 * d2, i2, 2, 5.6)
+b3 <- c(6.05, 6.35)
+d3 <- c(6.45, 7.1)
+i3 <- c(2, 1.2)
+storm3 <- cbind(3 * b3, 3 * d3, i3, 3, 5)
+x <- rbind(storm1, storm2, storm3)
+colnames(x) <- c("births", "deaths", "intensities", "storm",
+                 "stormDurations")
+
+# Create the schematic
+schematic(x, size = 1, ndays = 1)
+```

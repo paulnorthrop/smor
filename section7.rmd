@@ -1,0 +1,81 @@
+---
+title: "Table 1 and Figures 5-7"
+---
+
+## Load R packages
+
+```{r}
+library(rainy)
+library(kableExtra)
+library(patchwork)
+```
+
+## Fit models
+
+```{r, echo = TRUE}
+# Set initial parameter estimates
+theta <- c(0.01, 1, 10, 0.1, 10)
+names(theta) <- c("$\\lambda$ (1/h)", "$\\mu_X$ (mm)", "$\\beta$ (1/h)", "$\\gamma$ (1/h)", "$\\eta$ (1/h)")
+
+# Use fitting property Set 1
+x <- fitBL0(data = bremenStats, theta = theta, properties = "set1",
+            months = 1)
+
+# Use fitting property Set 2
+x6 <- fitBL0(data = bremenStats, theta = theta, properties = "set6",
+            months = 1)
+```
+
+## Table 1
+
+```{r table1, eval = TRUE}
+# Calculate estimates and confidence intervals
+sex <- sqrt(diag(vcov(x)))
+sex6 <- sqrt(diag(vcov(x6)))
+coefCompare <- cbind(t(coef(x)), sex, confint(x), t(coef(x6)), sex6, confint(x6))
+
+# Set parameter names
+BL0pars <- c("$\\lambda$", "$\\mu_X$", "$\\beta$", "$\\gamma$", "$\\eta$")
+rownames(coefCompare) <- BL0pars
+colnames(coefCompare) <- rep(c("estimate", "SE", "lower", "upper"), 2)
+
+# Produce the table
+kableExtra::kbl(coefCompare, digits = 3, booktabs = FALSE, align = "c",
+                row.names = TRUE, escape = FALSE) %>%
+add_header_above(c(" ", "Set 1" = 4, "Set 2" = 4))
+```
+
+***
+
+## Figure 5
+
+```{r figure5, echo = TRUE, fig.width = 6, fig.height = 5, out.width = "100%"}
+# Predict properties
+y <- predict(x)
+
+# Create the plot
+plot(y, rainFit2 = x6, stats = c("var", "pwet", "skew"), yearLabels = c(1996, 2009, 2023))
+```
+
+## Figure 6
+
+```{r figure6, echo = TRUE, fig.width = 6, fig.height = 2, out.width = "100%"}
+plot(y, rainFit2 = x6, lags = 1:3, acf = TRUE)
+```
+
+## Figure 7
+
+```{r figure7, echo = TRUE, warning = FALSE, message = FALSE, eval = TRUE, out.width = "100%"}
+
+# Fit 1
+y1 <- simulate(x, ndays = 31, h = 1 / 6, seed = 2)
+p1 <- plot(y1)
+p2 <- plot(y1, year = 2023, month = 1, day = 18)
+
+# Fit 2
+y2 <- simulate(x6, ndays = 31, h = 1 / 6, seed = 34)
+p3 <- plot(y2)
+p4 <- plot(y2, year = 2023, month = 1, day = 24)
+
+(p1 | p2) / (p3 | p4)
+```

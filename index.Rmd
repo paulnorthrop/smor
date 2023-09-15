@@ -1,0 +1,22 @@
+---
+title: "Stochastic Models of Rainfall"
+author: "Paul J. Northrop"
+---
+
+This website provides R code to reproduce analyses and (most of) the figures in
+
+> Northrop, P. J. (2024) *Stochastic Models of Rainfall*. Annual Review of Statistics and its Application.
+
+## Required R packages
+
+The [`rainy`](https://github.com/paulnorthrop/rainy) package is required and can be installed from Github.
+
+The [`patchwork`](https://cran.r-project.org/package=patchwork) package is required for Figures 1, 4 and 7. The [`kableExtra`](https://cran.r-project.org/package=kableExtra) packages is required for Table 1.
+
+## Data
+
+The analyses are of a dataset called `bremen` supplied in `rainy`. Use `?bremen` for information about these data. The source is Deutscher Wetterdienst (DWD), from the DWD [Climate Data Center (CDC)](https://www.dwd.de/EN/climate_environment/cdc/cdc_node_en.html). See also [DWD's copyright notice](https://www.dwd.de/EN/service/copyright/copyright_node.html)
+
+## Figures and tables
+
+The figures and tables are those in the draft of the paper that was accepted for publication, not the (vastly improved) versions that appear in the published review article. The figure captions are not included. Neither Figure 2 nor Figure 8 are reproduced.

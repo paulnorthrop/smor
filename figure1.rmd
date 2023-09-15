@@ -1,0 +1,22 @@
+---
+title: ""
+---
+
+## Load R packages
+
+```{r}
+library(rainy)
+library(patchwork)
+```
+
+## Create the plots
+
+```{r figure 1, echo = TRUE, warning = FALSE, message = FALSE, out.width = "100%"}
+#| fig-cap: "Data from Deutscher Wetterdienst (DWD), station 691."
+p1 <- plot(bremen)
+p2 <- plot(bremen, year = 1998, month = 1)
+p3 <- plot(bremen, year = 1998, month = 1, day = 19)
+p4 <- plot(bremen, year = 2023, month = 1)
+p5 <- plot(bremen, year = 2023, month = 1, day = 30)
+p1 / (p2 | p3) / (p4 | p5)
+```
