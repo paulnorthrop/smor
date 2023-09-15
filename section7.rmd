@@ -42,10 +42,11 @@ colnames(coefCompare) <- rep(c("estimate", "SE", "lower", "upper"), 2)
 # Produce the table
 kableExtra::kbl(coefCompare, digits = 3, booktabs = FALSE, align = "c",
                 row.names = TRUE, escape = FALSE) %>%
+kable_styling() %>%
 add_header_above(c(" ", "Set 1" = 4, "Set 2" = 4))
 ```
 
-***
+------------------------------------------------------------------------
 
 ## Figure 5
 

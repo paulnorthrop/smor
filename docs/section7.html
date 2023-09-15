@@ -387,8 +387,9 @@ colnames(coefCompare) &lt;- rep(c(&quot;estimate&quot;, &quot;SE&quot;, &quot;lo
 # Produce the table
 kableExtra::kbl(coefCompare, digits = 3, booktabs = FALSE, align = &quot;c&quot;,
                 row.names = TRUE, escape = FALSE) %&gt;%
+kable_styling() %&gt;%
 add_header_above(c(&quot; &quot;, &quot;Set 1&quot; = 4, &quot;Set 2&quot; = 4))</code></pre>
-<table>
+<table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
